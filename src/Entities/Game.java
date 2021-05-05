@@ -8,9 +8,15 @@ public class Game {
 	
 	private Campaign campaign;
 	
+	public Game(Campaign campaign) {
+		this.campaign = campaign;
+	}
+
+
 	public Game() {
 		super();
 	}
+	
 
 	public Game(int id, String gameName, double price) {
 		super();
@@ -41,20 +47,13 @@ public class Game {
 	}
 
 	public double getUnitPriceAfterDiscount() {
-		return this.price - (this.price * (getCampaign().getDiscount()) / 100);
+		return this.price - (this.price * (this.campaign.getDiscount()) / 100);
 	}
 
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-	public Campaign getCampaign() {
-		return campaign;
-	}
-
-	public void setCampaign(Campaign campaign) {
-		this.campaign = campaign;
-	}
 
 	
 

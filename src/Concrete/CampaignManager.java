@@ -2,8 +2,9 @@ package Concrete;
 
 import Abstract.CampaignService;
 import Entities.Campaign;
+import Entities.Game;
 
-public class CampaignManager implements CampaignService {
+public class CampaignManager implements CampaignService  {
 	@Override
 	public void add(Campaign campaign) {
 		System.out.println("Saved :" + campaign.getCampaignNamae());
@@ -19,6 +20,12 @@ public class CampaignManager implements CampaignService {
 	public void delete(Campaign campaign) {
 		System.out.println("Deleted :" + campaign.getCampaignNamae());
 
+	}
+
+	@Override
+	public double calculateDiscount(Game game, Campaign campaign) {
+		return  (game.getPrice() - (game.getPrice() * (campaign.getDiscount()) / 100));
+		
 	}
 
 }

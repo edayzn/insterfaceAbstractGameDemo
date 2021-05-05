@@ -1,5 +1,7 @@
 
 
+import Abstract.GamerService;
+import Adapters.MernisServiceAdapter;
 import Concrete.CampaignManager;
 import Concrete.GameManager;
 import Concrete.GamerManager;
@@ -13,9 +15,9 @@ public class Main {
 		
 		Gamer gammer=new Gamer();
 		gammer.setId(1);
-		gammer.setFirstName("Eda");
+		gammer.setFirstName("Eda Hamide");
 		gammer.setLastName("Yazan Ayan");
-		gammer.setNationalityId("**");
+		gammer.setNationalityId("45109941496");
 		gammer.setYearOfBirth(1994);
 		gammer.setEmail("xxx@xxx.xx");
 		gammer.setPassword("xxx");
@@ -42,14 +44,14 @@ public class Main {
 		campaignManager.delete(campaign);
 		campaignManager.update(campaign);
 		
-		GamerManager gamerManager=new GamerManager();
-		
+		GamerService gamerManager= new GamerManager(new MernisServiceAdapter(),new CampaignManager());
+			
 		gamerManager.add(gammer);
 		gamerManager.delete(gammer);
 		gamerManager.update(gammer);
-		
 		gamerManager.buy(gammer, game);
 		gamerManager.discountPurchase(gammer, game, campaign);
+	
 		
 	}
 

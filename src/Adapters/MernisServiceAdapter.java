@@ -7,9 +7,10 @@ import tr.gov.nvi.tckimlik.WS.KPSPublicSoap;
 import tr.gov.nvi.tckimlik.WS.KPSPublicSoapProxy;
 
 
-public class MernisServiceAdapter  {
+public class MernisServiceAdapter implements MernisService {
 
-	public static boolean CheckIfRealPerson(Gamer gamer) {
+	@Override
+	public boolean CheckIfRealPerson(Gamer gamer) {
 		boolean control=false;
 		KPSPublicSoap kpsPublicSoap= new KPSPublicSoapProxy();
 			
@@ -26,6 +27,8 @@ public class MernisServiceAdapter  {
 		return control;
 	
 	}
+
+	
 	
 	
 }

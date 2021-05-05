@@ -10,7 +10,6 @@ public class Campaign {
 	}
 
 	public Campaign(int id, String campaignNamae, double discount) {
-		super();
 		this.id = id;
 		this.campaignNamae = campaignNamae;
 		this.discount=discount;
